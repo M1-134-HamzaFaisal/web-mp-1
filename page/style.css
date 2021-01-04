@@ -1,6 +1,7 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap');
 .head{
-    background-color: #a3b18a;
+  background-image: linear-gradient(15deg, #a3b18a 0%, #21743d 150%);
     width: 100%;
     height:100px ;
     display: flex;
@@ -30,42 +31,8 @@ a:hover{
   flex-wrap: wrap;
   margin-left: 12px  ;
 }
-.card{
-  width:150px ;
-  height: 400px;
-  background-color:#a3b18a;
-  margin-top: 30px;
-  font-family:Cairo;
-  border-radius: 12px ;
 
-}
-.card-text{
- text-align: center;
-  font-family:Cairo;
-}
-.card-img-top{
-  width:90% ;
-  height:200px ;
-  border-radius: 12px ;
-  margin-left: 14px;
-  margin-right: 11px;
-  margin-top:10px ;
-  
- 
-}
-.card-title{
-  text-align: center;
-  margin:auto ;
-  font-family:Cairo;
-}
-.imge{
-    border-radius: 50%; 
-    -webkit-border-radius: 50%;  
-     -moz-border-radius: 50%;  
-     width: 60px;
-     margin-left: 50px;
-     margin-top: 15px;
-}
+
 nav {
     display:flex;
     justify-content: center;
@@ -77,41 +44,140 @@ nav {
     width: 500px;
    
     margin-top: 30px;
-    margin-left: 120px;
-  }
-  h3{
-    width: 100px;
-    margin:auto; 
-  }
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100px;
-    margin:auto ;
-    
+    margin-left: 290px;
    
   }
-  .to{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin-left: 12px  ;
+ 
+
+.imge{
+  border-radius: 50%; 
+  -webkit-border-radius: 50%;  
+   -moz-border-radius: 50%;  
+   width: 100px;
+   margin-left: 50px;
+   margin-top: 15px;
+} 
+:root{
+  font-family:Cairo;
+  --background-dark: #2d3548;
+  --text-light: rgba(255,255,255,0.6);
+  --text-lighter: rgba(255,255,255,0.9);
+  --spacing-s: 8px;
+  --spacing-m: 16px;
+  --spacing-l: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 64px;
+  --width-container: 1200px;
+}
+
+*{
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+  font-family:Cairo;
+  font-size: 14px;
+}
+
+body{
+  height: 100%;
+}
+
+.hero-section{
+  margin-top: 30px;
+flex-wrap: wrap;
+  align-items: flex-start;
+  background-image: linear-gradient(15deg, #a3b18a 0%, #21743d 150%);
+  display: flex;
+  min-height: 100%;
+  justify-content: center;
+  padding: var(--spacing-xxl) var(--spacing-l);
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: var(--spacing-l);
+  grid-row-gap: var(--spacing-l);
+  max-width: var(--width-container);
+  width: 100%;
+}
+
+@media(min-width: 540px){
+  .card-grid{
+    grid-template-columns: repeat(2, 1fr); 
   }
-  .two{
-      margin-top: 150px;
+}
+
+@media(min-width: 960px){
+  .card-grid{
+    grid-template-columns: repeat(4, 1fr); 
   }
-  .third{
-      margin-top: 150px;
-  }
-.list{
-    background-color: #588157;
-    width: 200px;
-    height: 900px;
-    color:rgb(14, 13, 13);
-    font-family:Cairo;
-    padding:unset ;
-    
+}
+
+.card{
+  list-style: none;
+  position: relative;
+}
+
+.card:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card__background{
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--spacing-l);
+  bottom: 0;
+  filter: brightness(0.75) saturate(1.2) contrast(0.85);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-origin: center;
+  trsnsform: scale(1) translateZ(0);
+  transition: 
+    filter 200ms linear,
+    transform 200ms linear;
+}
+
+.card:hover .card__background{
+  transform: scale(1.05) translateZ(0);
+}
+
+.card-grid:hover > .card:not(:hover) .card__background{
+  filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+}
+
+.card__content{
+  left: 0;
+  padding: var(--spacing-l);
+  position: absolute;
+  top: 0;
+  font-family:Cairo;
+}
+ 
+
+.card__category{
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-s);
+  text-transform: uppercase;
+  font-family:Cairo;
+}
+
+.card__heading{
+  color: var(--text-lighter);
+  font-size: 1.9rem;
+  text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+  line-height: 1.4;
+  word-spacing: 100vw;
+  font-family:Cairo;
 }
